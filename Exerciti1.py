@@ -5,6 +5,7 @@ n = int(f.readline())
 k1 = int(f.readline())
 viz=[0]*n
 c=0
+v=[]
 A = np.zeros((n, n))
 for i in range(k1):
     x = int(f.readline())
@@ -24,4 +25,19 @@ for i in range (n):
     if(viz[i]==0):
         c+=1
         dfs(i)
-print(viz)
+print("viz= ",viz)
+sorted(v)
+for i in range (len(viz)):
+    c=0
+    for j in range (len(viz)):
+        
+        if(viz[j]==viz[i] and viz[j]!=viz[i-1]):
+            c+=1
+        
+            
+    if(c!=0):
+        v.append(c)
+    
+    
+    
+print("vectoru de cate noduri per grupa",v)
