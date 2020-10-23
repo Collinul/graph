@@ -1,4 +1,6 @@
 # sa vedem cate grafuri sunt
+# o functie care sa isi dea seama ce muchie trebuie
+#trasa ca sa fie cel mai mare graf
 import numpy as np
 f = open("C:/Users/Win/Desktop/exinput.txt", "r")
 n = int(f.readline())
@@ -6,6 +8,7 @@ k1 = int(f.readline())
 viz=[0]*n
 c=0
 v=[]
+p=[]
 A = np.zeros((n, n))
 for i in range(k1):
     x = int(f.readline())
@@ -16,11 +19,14 @@ print(A)
 
 def dfs(h):
     viz[h] = c 
+    p.append(h) 
 
     for i in range(n):
         if (viz[i] == 0 and A[h][i] == 1):
-            dfs(i)
-
+           
+           dfs(i)
+            
+print("p= ",p)
 for i in range (n):
     if(viz[i]==0):
         c+=1
